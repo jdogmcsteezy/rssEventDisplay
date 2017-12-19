@@ -1,0 +1,429 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sin_L",
+				"sin_LnRadius_"
+			],
+			[
+				"g",
+				"get_rect"
+			],
+			[
+				"dat",
+				"dateSurface_"
+			],
+			[
+				"c",
+				"currentTime"
+			],
+			[
+				"cur",
+				"currentTime〔variable〕"
+			],
+			[
+				"pr",
+				"previousTime_〔variable〕"
+			],
+			[
+				"p",
+				"path〔module〕"
+			],
+			[
+				"tex",
+				"textSeconds_"
+			],
+			[
+				"tes",
+				"textsurface〔variable〕"
+			],
+			[
+				"si",
+				"sin_XDisplacment_〔variable〕"
+			],
+			[
+				"ge",
+				"get_height"
+			],
+			[
+				"bg",
+				"bgSurface_〔variable〕"
+			],
+			[
+				"ln",
+				"lnColor_"
+			],
+			[
+				"l",
+				"line\tpygame(draw) "
+			],
+			[
+				"time",
+				"timePassed_"
+			],
+			[
+				"ti",
+				"timePassed_"
+			],
+			[
+				"dot",
+				"dotDrawSurface_"
+			],
+			[
+				"get",
+				"get_rect"
+			],
+			[
+				"d",
+				"draw〔variable〕"
+			],
+			[
+				"b",
+				"bgSurface"
+			],
+			[
+				"_",
+				"__init__"
+			],
+			[
+				"ma",
+				"mainScreen〔variable〕"
+			],
+			[
+				"set",
+				"set_mode\tpygame(display) "
+			],
+			[
+				"Sur",
+				"Surface\tpygame(Surface) "
+			],
+			[
+				"t",
+				"time〔variable〕"
+			],
+			[
+				"get_w",
+				"get_width\tpygame(Surface) "
+			],
+			[
+				"cl",
+				"clockScreen〔variable〕"
+			],
+			[
+				"dir",
+				"dir_path"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "import pygame\nimport requests\nimport feedparser\nfrom xml import etree\n\nparsed = ET.parse(\"http://calendar.butte.edu/RSSSyndicator.aspx?type=N&number=5&category=4-0&rssid=7&rsstitle=Academic+Calendar&sortorder=ASC\")\nnotags = ET.tostring(parsed, encoding='utf8', method='text')\nprint(notags)\ndef main():\n\tfeed = feedparser.parse(\"http://calendar.butte.edu/RSSSyndicator.aspx?type=N&number=5&category=4-0&rssid=7&rsstitle=Academic+Calendar&sortorder=ASC\")\n\tprint(feed.entries[0].description + '\\n')\n\tprint(feed.entries[0].content, end='\\n\\n\\n\\n\\n')\n\tentry = feed.entries[0]\n\tprint((str(entry.content)))\nif __name__ == \"__main__\":\n\tmain()",
+			"file": "rssEventDisplay.py",
+			"file_size": 656,
+			"file_write_time": 131570952088156830,
+			"settings":
+			{
+				"buffer_size": 634,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/MinGW-w64.sublime-build",
+					""
+				],
+				[
+					"Packages/MinGW-w64.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 335.0,
+		"last_filter": "virt",
+		"selected_items":
+		[
+			[
+				"virt",
+				"Virtualenv: Activate"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"codeintel",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"ma",
+				"Material Theme: Activate theme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Install Package Control"
+			]
+		],
+		"width": 517.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Jesse Schmidt/Documents/Sublime/rssEventDisplay"
+	],
+	"file_history":
+	[
+		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/Virtualenv/Virtualenv.sublime-settings",
+		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/User/Virtualenv.sublime-settings",
+		"/C/Users/Jesse Schmidt/Documents/Sublime/rssEventDisplay/rssEventDisplay.sublime-project",
+		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/Jesse Schmidt/Documents/Sublime/sinWaveClock/SinWaveClock.py",
+		"/C/Users/Jesse Schmidt/Documents/Sublime/sinWaveClock/test.py",
+		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/MinGW-w64.sublime-build",
+		"/C/Users/Jesse Schmidt/Documents/Sublime/sinWaveClock/derekTest.py",
+		"/C/Users/Jesse Schmidt/Documents/Sublime/sinWaveClock/README.md",
+		"/C/Users/Jesse Schmidt/Documents/Sublime/bc_code_runners/BCCodeRunnersTests/windowtests/windowTest.py",
+		"/C/Users/Jesse Schmidt/Documents/Sublime/testTkinter/testTk.py",
+		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/Material Theme/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 60.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "rssEventDisplay.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 634,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								275,
+								275
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 52.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 240.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Virtualenv/Python + Virtualenv.sublime-build",
+	"project": "rssEventDisplay.sublime-project",
+	"replace":
+	{
+		"height": 115.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"README.md"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 188.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
