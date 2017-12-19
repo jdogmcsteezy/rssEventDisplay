@@ -120,15 +120,20 @@
 	"buffers":
 	[
 		{
-			"contents": "import pygame\nimport requests\nimport feedparser\nfrom xml import etree\n\nparsed = ET.parse(\"http://calendar.butte.edu/RSSSyndicator.aspx?type=N&number=5&category=4-0&rssid=7&rsstitle=Academic+Calendar&sortorder=ASC\")\nnotags = ET.tostring(parsed, encoding='utf8', method='text')\nprint(notags)\ndef main():\n\tfeed = feedparser.parse(\"http://calendar.butte.edu/RSSSyndicator.aspx?type=N&number=5&category=4-0&rssid=7&rsstitle=Academic+Calendar&sortorder=ASC\")\n\tprint(feed.entries[0].description + '\\n')\n\tprint(feed.entries[0].content, end='\\n\\n\\n\\n\\n')\n\tentry = feed.entries[0]\n\tprint((str(entry.content)))\nif __name__ == \"__main__\":\n\tmain()",
 			"file": "rssEventDisplay.py",
-			"file_size": 656,
-			"file_write_time": 131570952088156830,
 			"settings":
 			{
-				"buffer_size": 634,
+				"buffer_size": 3206,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 18,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -179,7 +184,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 335.0,
+		"height": 443.0,
 		"last_filter": "virt",
 		"selected_items":
 		[
@@ -216,7 +221,7 @@
 				"Install Package Control"
 			]
 		],
-		"width": 517.0
+		"width": 629.0
 	},
 	"console":
 	{
@@ -240,10 +245,10 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/Virtualenv/Virtualenv.sublime-settings",
 		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/User/Virtualenv.sublime-settings",
 		"/C/Users/Jesse Schmidt/Documents/Sublime/rssEventDisplay/rssEventDisplay.sublime-project",
-		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/C/Users/Jesse Schmidt/Documents/Sublime/sinWaveClock/SinWaveClock.py",
 		"/C/Users/Jesse Schmidt/Documents/Sublime/sinWaveClock/test.py",
 		"/C/Users/Jesse Schmidt/AppData/Roaming/Sublime Text 3/Packages/MinGW-w64.sublime-build",
@@ -286,7 +291,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -295,15 +300,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 634,
+						"buffer_size": 3206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								275,
-								275
+								2349,
+								2349
 							]
 						],
 						"settings":
@@ -322,9 +327,41 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "README.md",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 18,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
