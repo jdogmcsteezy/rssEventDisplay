@@ -16,17 +16,17 @@ class AcademicCalanderDisplay(pygame.Surface):
         self.fill((255, 255, 255))
         self.titleBar_textOffset = (0, -2)
         self.titleBar_heightRatio = .4
-        self.titleBar_bgColor = (0, 0, 0)
-        self.titleBar_textColor = (158, 0, 49)
-        self.titleBar_font = ('Instruction.otf', 25)
+        self.titleBar_bgColor = (198, 225, 234)
+        self.titleBar_textColor = (0, 0, 0)
+        self.titleBar_font = ('Instruction Bold.otf', 25)
         self.titleBar_text = 'Butte College Academic Deadlines'
         self.RenderTitleBar()
         self.scrollBarSpeed = 3
         self.scrollBar_heightRatio = 1.0 - self.titleBar_heightRatio
-        self.scrollBar_bgColor = (255, 255, 255)
-        self.scrollBar_textColor = (0, 0, 0)
+        self.scrollBar_bgColor = (0, 0, 0)
+        self.scrollBar_textColor = (158, 0, 49)
         self.scrollBar_textOffset = (0, -2)
-        self.scrollBar_font = ('Instruction Bold.otf', 25)
+        self.scrollBar_font = ('Instruction.otf', 25)
         self.scrollBar_textSeperator = '           '
         self.scrollBar = pygame.Surface((self.width, self.height * (1.0 - self.titleBar_heightRatio)))
         self.scrollBar.fill(self.scrollBar_bgColor)
@@ -41,7 +41,7 @@ class AcademicCalanderDisplay(pygame.Surface):
         contentList = [title.text for title in root.iter('title')]
         contentList.pop(0)
         self.scrollBar_text = self.scrollBar_textSeperator + self.scrollBar_textSeperator.join(contentList)
-        self.scrollBar_text = self.scrollBar_text.upper()
+        #self.scrollBar_text = self.scrollBar_text.upper()
         self.scrollBar_content = font.render(self.scrollBar_text, False, self.scrollBar_textColor)
         self.scrollBar_contentRect = self.scrollBar_content.get_rect()
         self.scrollBar_Rect = self.scrollBar.get_rect()
@@ -57,8 +57,8 @@ class AcademicCalanderDisplay(pygame.Surface):
         self.titleBar.fill(self.titleBar_bgColor)
         titleBarRect = self.titleBar.get_rect()
         headingRect = titleBarHeading.get_rect()
-        pygame.draw.line(self.titleBar, (198, 225, 234), (0, titleBarRect.centery), (60, titleBarRect.centery), 2)
-        pygame.draw.line(self.titleBar, (198, 225, 234), (titleBarRect.right, titleBarRect.centery), (titleBarRect.right - 63, titleBarRect.centery), 2)
+        pygame.draw.line(self.titleBar, (0, 0, 0), (0, titleBarRect.centery), (300, titleBarRect.centery), 2)
+        pygame.draw.line(self.titleBar, (0, 0, 0), (titleBarRect.right, titleBarRect.centery), (titleBarRect.right - 300, titleBarRect.centery), 2)
         self.titleBar.blit(titleBarHeading, (titleBarRect.centerx - headingRect.centerx + self.titleBar_textOffset[0],
                                              titleBarRect.centery - headingRect.centery + self.titleBar_textOffset[1]))
         self.titleBar.convert()
