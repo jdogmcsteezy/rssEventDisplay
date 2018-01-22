@@ -1,14 +1,13 @@
-import pygame
-from pygame import Surface, time
+from pygame import Surface, time, font, draw
 import urllib.request
 import xml.etree.ElementTree as ET
 import os
 
 
-class AcademicCalanderDisplay(pygame.Surface):
+class AcademicCalanderDisplay(Surface):
     def __init__(self, width, height):
-        pygame.Surface.__init__(self, (width, height))
-        pygame.font.init()
+        Surface.__init__(self, (width, height))
+        font.init()
         self.dir_path = os.path.dirname(os.path.realpath(__file__))
         self.rssTree = ET.parse(urllib.request.urlopen('http://calendar.butte.edu/RSSSyndicator.aspx?type=N&number=5&category=4-0&rssid=7&rsstitle=Academic+Calendar&sortorder=ASC'))
         self.width = width
@@ -28,7 +27,7 @@ class AcademicCalanderDisplay(pygame.Surface):
         self.scrollBar_textOffset = (0, -2)
         self.scrollBar_font = ('Instruction.otf', 25)
         self.scrollBar_textSeperator = '           '
-        self.scrollBar = pygame.Surface((self.width, self.height * (1.0 - self.titleBar_heightRatio)))
+        self.scrollBar = Surface((self.width, self.height * (1.0 - self.titleBar_heightRatio)))
         self.scrollBar.fill(self.scrollBar_bgColor)
         self.scrollX1 = 0
         self.scrollX2 = 0
@@ -37,12 +36,12 @@ class AcademicCalanderDisplay(pygame.Surface):
 
     def UpdateContents(self):
         root = self.rssTree.getroot()
-        font = pygame.font.Font(self.dir_path + '/Fonts/' + self.scrollBar_font[0], self.scrollBar_font[1])
+        contentFont = font.Font(self.dir_path + '/Fonts/' + self.scrollBar_font[0], self.scrollBar_font[1])
         contentList = [title.text for title in root.iter('title')]
         contentList.pop(0)
         self.scrollBar_text = self.scrollBar_textSeperator + self.scrollBar_textSeperator.join(contentList)
         #self.scrollBar_text = self.scrollBar_text.upper()
-        self.scrollBar_content = font.render(self.scrollBar_text, False, self.scrollBar_textColor)
+        self.scrollBar_content = contentFont.render(self.scrollBar_text, True, self.scrollBar_textColor)
         self.scrollBar_contentRect = self.scrollBar_content.get_rect()
         self.scrollBar_Rect = self.scrollBar.get_rect()
         self.scrollBar.blit(self.scrollBar_content, (0, self.scrollBar_Rect.centery - self.scrollBar_contentRect.centery))
@@ -51,14 +50,15 @@ class AcademicCalanderDisplay(pygame.Surface):
         self.scrollBar_content.convert()
 
     def RenderTitleBar(self):
-        font = pygame.font.Font(self.dir_path + '/Fonts/' + self.titleBar_font[0], self.titleBar_font[1])
-        titleBarHeading = font.render(self.titleBar_text, False, self.titleBar_textColor)
-        self.titleBar = pygame.Surface((self.width, self.height * self.titleBar_heightRatio))
+        # This should probably be changed to os.path.join() and have 'Fonts as class variable'
+        titleFont = font.Font(self.dir_path + '/Fonts/' + self.titleBar_font[0], self.titleBar_font[1])
+        titleBarHeading = titleFont.render(self.titleBar_text, True, self.titleBar_textColor)
+        self.titleBar = Surface((self.width, self.height * self.titleBar_heightRatio))
         self.titleBar.fill(self.titleBar_bgColor)
         titleBarRect = self.titleBar.get_rect()
         headingRect = titleBarHeading.get_rect()
-        pygame.draw.line(self.titleBar, (0, 0, 0), (0, titleBarRect.centery), (300, titleBarRect.centery), 2)
-        pygame.draw.line(self.titleBar, (0, 0, 0), (titleBarRect.right, titleBarRect.centery), (titleBarRect.right - 300, titleBarRect.centery), 2)
+        draw.line(self.titleBar, (0, 0, 0), (0, titleBarRect.centery), (300, titleBarRect.centery), 2)
+        draw.line(self.titleBar, (0, 0, 0), (titleBarRect.right, titleBarRect.centery), (titleBarRect.right - 300, titleBarRect.centery), 2)
         self.titleBar.blit(titleBarHeading, (titleBarRect.centerx - headingRect.centerx + self.titleBar_textOffset[0],
                                              titleBarRect.centery - headingRect.centery + self.titleBar_textOffset[1]))
         self.titleBar.convert()
@@ -82,6 +82,8 @@ class AcademicCalanderDisplay(pygame.Surface):
         return self
 
 
+# ---- TESTING -----
+import pygame
 def main():
     pygame.init()
     clock = pygame.time.Clock()
