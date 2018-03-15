@@ -1,15 +1,18 @@
 from pygame import Surface, time, font, draw
 import urllib.request
 import xml.etree.ElementTree as ET
-import os
+from os import path
 from datetime import datetime
+
 
 
 class AcademicCalanderDisplay(Surface):
     def __init__(self, width, height):
         Surface.__init__(self, (width, height))
         font.init()
-        self.dir_path = os.path.dirname(os.path.realpath(__file__))
+        self.dir_path = path.dirname(path.realpath(__file__))
+        self.assets_path = path.join(self.dir_path, 'Assets')
+        self.fonts_path = path.join(self.assets_path, 'Fonts')
         self.rssTree = None
         self.width = width
         self.height = height
@@ -20,9 +23,9 @@ class AcademicCalanderDisplay(Surface):
         self.titleBar_bgColor = (39,40,34)
         self.titleBar_textColor = (186, 111, 23)
         self.titleBar_font = ('OpenSans-Bold.ttf', int(height * .3067))
-        self.titleBar_text = 'Butte College Academic Deadlines'
+        self.titleBar_text = 'Important Academic Deadlines'
         self.RenderTitleBar()
-        self.scrollBarSpeed = 3
+        self.scrollBarSpeed = 5  
         self.scrollBar_heightRatio = 1.0 - self.titleBar_heightRatio
         self.scrollBar_bgColor = (242,242,242)
         self.scrollBar_textColor = (0,0,0)
@@ -39,7 +42,7 @@ class AcademicCalanderDisplay(Surface):
     def UpdateContents(self):
         self.rssTree = ET.parse(urllib.request.urlopen('http://calendar.butte.edu/RSSSyndicator.aspx?type=N&number=5&category=4-0&rssid=7&rsstitle=Academic+Calendar&sortorder=ASC'))
         root = self.rssTree.getroot()
-        contentFont = font.Font(self.dir_path + '/Fonts/' + self.scrollBar_font[0], self.scrollBar_font[1])
+        contentFont = font.Font(path.join(self.fonts_path, self.scrollBar_font[0]), self.scrollBar_font[1])
         contentList = [title.text for title in root.iter('title')]
         contentList.pop(0)
         self.scrollBar_text = self.scrollBar_textSeperator + self.scrollBar_textSeperator.join(contentList)
@@ -53,7 +56,7 @@ class AcademicCalanderDisplay(Surface):
 
     def RenderTitleBar(self):
         # This should probably be changed to os.path.join() and have 'Fonts as class variable'
-        titleFont = font.Font(self.dir_path + '/Fonts/' + self.titleBar_font[0], self.titleBar_font[1])
+        titleFont = font.Font(path.join(self.fonts_path, self.titleBar_font[0]), self.titleBar_font[1])
         titleBarHeading = titleFont.render(self.titleBar_text, True, self.titleBar_textColor)
         self.titleBar = Surface((self.width, self.height * self.titleBar_heightRatio))
         self.titleBar.fill(self.titleBar_bgColor)
